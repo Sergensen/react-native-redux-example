@@ -1,21 +1,33 @@
-const { RESET, COUNT, COUNT_PARAM } = require('./actionTypes');
+const { ADD, SUB, MUL, DIV, TYPE } = require('./actionTypes');
 
 
-export function count() {
+export function add() {
   return {
-    type: COUNT
+    type: ADD
   };
 }
 
-export function reset() {
+export function sub() {
   return {
-    type: RESET
+    type: SUB
   };
 }
 
-export function countParam(number) {
+export function mul() {
   return {
-    type: COUNT_PARAM,
-    number
+    type: MUL
+  };
+}
+
+export function div() {
+  return {
+    type: DIV
+  };
+}
+
+export function type(value) {
+  return {
+    type: TYPE,
+    value
   };
 }

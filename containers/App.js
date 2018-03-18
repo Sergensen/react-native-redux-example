@@ -2,14 +2,14 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
-import Selector from '../components/Selector';
+import Calc from '../components/Calc';
 
-const App = ({actions, countReducer}) => (
-    <Selector actions={actions} counter={countReducer.counter} />
+const App = ({actions, calc}) => (
+    <Calc actions={actions} calc={calc} />
   );
 
-const mapStateToProps = ({countReducer}) => ({
-  countReducer,
+const mapStateToProps = ({calc}) => ({
+  calc,
 });
 
 const mapDispatchToProps = dispatch => ({

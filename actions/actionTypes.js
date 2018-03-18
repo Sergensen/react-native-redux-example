@@ -1,3 +1,5 @@
-export const COUNT = 'COUNT';
-export const COUNT_PARAM = 'COUNT_PARAM';
-export const RESET = 'RESET';
+export const ADD = 'ADD';
+export const SUB = 'SUB';
+export const MUL = 'MUL';
+export const DIV = 'DIV';
+export const TYPE = 'TYPE';
