@@ -1,4 +1,4 @@
-const { ADD, SUB, MUL, DIV, TYPE } = require('./actionTypes');
+const { ADD, SUB, MUL, DIV, TYPE, RES, CLEAR } = require('./actionTypes');
 
 
 export function add() {
@@ -7,9 +7,21 @@ export function add() {
   };
 }
 
+export function clear() {
+  return {
+    type: CLEAR
+  };
+}
+
 export function sub() {
   return {
     type: SUB
+  };
+}
+
+export function res() {
+  return {
+    type: RES
   };
 }
 

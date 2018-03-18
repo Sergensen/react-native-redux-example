@@ -6,21 +6,16 @@ import Numbers from './Numbers'
 import Operations from './Operations'
 
 export default class Calc extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-    }
-  }
-
   render() {
+    const { actions, state } = this.props;
     return (
       <View style={styles.mainView}>
          <StatusBar hidden />
-         <Result style={styles.result} />
-         <Input style={styles.input} />
+         <Result result={state.result} style={styles.result} />
+         <Input input={state.input} style={styles.input} />
          <View style={styles.inputView}>
-           <Numbers style={styles.numbers} />
-           <Operations style={styles.operations} />
+           <Numbers actions={actions} input={state.input} style={styles.numbers} />
+           <Operations actions={actions} style={styles.operations} />
          </View>
       </View>
     );
@@ -32,11 +27,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   result:{
-    backgroundColor: "red",
+    backgroundColor: "#898989",
     flex: 3
   },
   input:{
-    backgroundColor: "blue",
+    backgroundColor: "#a8a8a8",
     flex: 2
   },
   inputView:{
@@ -45,7 +40,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   numbers:{
-    backgroundColor: "white",
+    backgroundColor: "#3a3a3a",
     flex: 3
   },
   operations:{

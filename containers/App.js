@@ -5,7 +5,7 @@ import * as actions from '../actions/actions';
 import Calc from '../components/Calc';
 
 const App = ({actions, calc}) => (
-    <Calc actions={actions} calc={calc} />
+    <Calc actions={actions} state={calc} />
   );
 
 const mapStateToProps = ({calc}) => ({
