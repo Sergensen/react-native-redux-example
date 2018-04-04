@@ -5,7 +5,8 @@ const initialState = {
   input: 0,
   last: false,
   dot: false,
-  clear: false
+  neg: 1,
+  clear: true
 };
 
 export default function countReducer (state = initialState, action) {
@@ -16,13 +17,18 @@ export default function countReducer (state = initialState, action) {
         result: callLastCalculation(state),
         input: 0,
         last: ADD,
+        neg:1,
+        clear: true,
         dot: false
       }
     case SUB:
+      const neg = state.input===0?-1:1;
       return {
         ...state,
         result: callLastCalculation(state),
         dot: false,
+        neg: neg,
+        clear: true,
         input: 0,
         last: SUB
       }
@@ -31,6 +37,7 @@ export default function countReducer (state = initialState, action) {
         ...state,
         result: callLastCalculation(state),
         dot: false,
+        clear: true,
         input: 0,
         last: MUL
       }
@@ -39,6 +46,7 @@ export default function countReducer (state = initialState, action) {
         ...state,
         result: callLastCalculation(state),
         dot: false,
+        clear: true,
         input: 0,
         last: DIV
       }
@@ -61,7 +69,7 @@ export default function countReducer (state = initialState, action) {
         if(!state.dot){
           return {
             ...state,
-            input: state.input*10+typed,
+            input: state.input*10+state.neg*typed,
             clear: false
           }
         }else{
@@ -82,7 +90,8 @@ export default function countReducer (state = initialState, action) {
         ...state,
         input: 0,
         result: state.clear?0:state.result,
-        last: false,
+        last: state.clear?false:state.last,
+        neg: 1,
         dot: false,
         clear: true
       }
@@ -96,16 +105,16 @@ export default function countReducer (state = initialState, action) {
 }
 
 const callLastCalculation = (state) => {
-  const { last } = state;
+  const { last, clear, neg } = state;
   const result = parseFloat(state.result);
   const input = parseFloat(state.input);
   switch (last) {
     case ADD:
        return result+input;
     case SUB:
-      return result-input;
+      return result-neg*input;
     case MUL:
-      return input!==0?result*input:result;
+      return (input!==0||!clear)?result*input:result;
     case DIV:
       return input!==0?result/input:result;
     default:

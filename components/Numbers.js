@@ -36,7 +36,7 @@ export default class Numbers extends Component {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#ECECEC',
+    backgroundColor: '#fffa9b',
     padding: 10,
     flex:1,
     justifyContent: 'center',
