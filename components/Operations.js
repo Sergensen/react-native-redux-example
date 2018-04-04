@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import OperationButton from './OperationButton';
+
+const { ADD, SUB, MUL, DIV } = require('../actions/actionTypes');
 
 export default class Operations extends Component {
   render() {
-    const { style, actions } = this.props;
+    const { style, actions, last } = this.props;
     return (
       <View style={style}>
-          <TouchableOpacity style={styles.button} onPress={actions.div} title="/"><Text style={styles.text}>/</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={actions.mul} title="*"><Text style={styles.text}>*</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={actions.sub} title="-"><Text style={styles.text}>-</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={actions.add} title="+"><Text style={styles.text}>+</Text></TouchableOpacity>
+          <OperationButton onPress={actions.div} value="/" type={DIV} last={last} />
+          <OperationButton onPress={actions.mul} value="*" type={MUL} last={last} />
+          <OperationButton onPress={actions.sub} value="-" type={SUB} last={last} />
+          <OperationButton onPress={actions.add} value="+" type={ADD} last={last} />
       </View>
     );
   }

@@ -4,7 +4,8 @@ const initialState = {
   result: 0,
   input: 0,
   last: false,
-  dot: false
+  dot: false,
+  clear: false
 };
 
 export default function countReducer (state = initialState, action) {
@@ -43,11 +44,12 @@ export default function countReducer (state = initialState, action) {
       }
     case DOT:
       const { dot, input } = state;
-      if(!dot){
+      if(!dot&&input.toString().length<10){
         return {
           ...state,
           input: input+".",
-          dot: true
+          dot: true,
+          clear: false
         }
       }
       return {
@@ -55,25 +57,34 @@ export default function countReducer (state = initialState, action) {
       }
     case TYPE:
       const typed = action.value;
-      if(!state.dot){
-        return {
-          ...state,
-          input: state.input*10+typed
+      if(state.input.toString().length<10){
+        if(!state.dot){
+          return {
+            ...state,
+            input: state.input*10+typed,
+            clear: false
+          }
+        }else{
+          let output = state.input.toString();
+          return {
+            ...state,
+            input: output+typed,
+            clear: false
+          }
         }
-      }else{
-        let output = state.input.toString();
+      } else {
         return {
-          ...state,
-          input: output+typed
+          ...state
         }
       }
     case CLEAR:
       return {
         ...state,
         input: 0,
-        result: 0,
+        result: state.clear?0:state.result,
         last: false,
-        dot: false
+        dot: false,
+        clear: true
       }
     case RES:
       return {
@@ -94,7 +105,7 @@ const callLastCalculation = (state) => {
     case SUB:
       return result-input;
     case MUL:
-      return result*input;
+      return input!==0?result*input:result;
     case DIV:
       return input!==0?result/input:result;
     default:

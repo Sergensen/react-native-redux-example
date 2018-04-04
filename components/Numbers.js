@@ -4,7 +4,8 @@ import Button from './Button';
 
 export default class Numbers extends Component {
   render() {
-    const { style, actions } = this.props;
+    const { style, actions, state } = this.props;
+    const clearButton = state.clear?"AC":"C";
     return (
       <View style={style}>
         <View style={styles.row}>
@@ -23,7 +24,7 @@ export default class Numbers extends Component {
           <Button actions={actions} value={3} />
         </View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={actions.clear} title="C"><Text style={styles.text}>C</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={actions.clear} title="C"><Text style={styles.text}>{clearButton}</Text></TouchableOpacity>
           <Button actions={actions} value={0} />
           <Button actions={actions} value={"."} />
         </View>

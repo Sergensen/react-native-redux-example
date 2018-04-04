@@ -14,8 +14,8 @@ export default class Calc extends Component {
          <Result result={state.result} style={styles.result} />
          <Input input={state.input} style={styles.input} />
          <View style={styles.inputView}>
-           <Numbers actions={actions} input={state.input} style={styles.numbers} />
-           <Operations actions={actions} style={styles.operations} />
+           <Numbers actions={actions} state={state} style={styles.numbers} />
+           <Operations last={state.last} actions={actions} style={styles.operations} />
          </View>
       </View>
     );
