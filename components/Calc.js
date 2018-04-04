@@ -27,23 +27,29 @@ const styles = StyleSheet.create({
     flex: 1
   },
   result:{
-    backgroundColor: "#898989",
-    flex: 3
+    backgroundColor: "#ECECEC",
+    flex: 3,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    borderWidth: 0.3,
+    borderColor: "#C7C1C1"
   },
   input:{
-    backgroundColor: "#a8a8a8",
-    flex: 2
+    backgroundColor: "#FDFDFD",
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
   },
   inputView:{
-    backgroundColor: "grey",
+    backgroundColor: "#8B6CFF",
     flex: 8,
     flexDirection: "row"
   },
   numbers:{
-    backgroundColor: "#3a3a3a",
+    backgroundColor: "#8B6CFF",
     flex: 3
   },
   operations:{
-    flex: 1
+    flex: 1,
   }
 });
