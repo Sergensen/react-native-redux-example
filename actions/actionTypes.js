@@ -5,3 +5,4 @@ export const DIV = 'DIV';
 export const TYPE = 'TYPE';
 export const RES = 'RES';
 export const CLEAR = 'CLEAR';
+export const DOT = 'DOT';

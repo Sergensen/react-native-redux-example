@@ -3,13 +3,13 @@ import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-nativ
 
 export default class Operations extends Component {
   render() {
-    const { style } = this.props;
+    const { style, actions } = this.props;
     return (
       <View style={style}>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="/"><Text style={styles.text}>/</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="*"><Text style={styles.text}>*</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="-"><Text style={styles.text}>-</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="+"><Text style={styles.text}>+</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={actions.div} title="/"><Text style={styles.text}>/</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={actions.mul} title="*"><Text style={styles.text}>*</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={actions.sub} title="-"><Text style={styles.text}>-</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={actions.add} title="+"><Text style={styles.text}>+</Text></TouchableOpacity>
       </View>
     );
   }
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     borderColor: "#C7C1C1"
   },
   text:{
-    fontSize: 30
+    fontSize: 25,
+    fontWeight: "bold"
   }
 });

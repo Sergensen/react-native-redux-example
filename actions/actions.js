@@ -1,4 +1,4 @@
-const { ADD, SUB, MUL, DIV, TYPE, RES, CLEAR } = require('./actionTypes');
+const { DOT, ADD, SUB, MUL, DIV, TYPE, RES, CLEAR } = require('./actionTypes');
 
 
 export function add() {
@@ -10,6 +10,11 @@ export function add() {
 export function clear() {
   return {
     type: CLEAR
+  };
+}
+export function dot() {
+  return {
+    type: DOT
   };
 }
 

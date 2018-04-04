@@ -1,49 +1,37 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import Button from './Button';
 
 export default class Numbers extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      input: this.props.input
-    }
-  }
-
-  onPress(){
-
-  }
-
   render() {
-    const { style } = this.props;
-    const { input } = this.state;
+    const { style, actions } = this.props;
     return (
       <View style={style}>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="7"><Text style={styles.text}>7</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="8"><Text style={styles.text}>8</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="9"><Text style={styles.text}>9</Text></TouchableOpacity>
+          <Button actions={actions} value={7} />
+          <Button actions={actions} value={8} />
+          <Button actions={actions} value={9} />
         </View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="4"><Text style={styles.text}>4</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="5"><Text style={styles.text}>5</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="6"><Text style={styles.text}>6</Text></TouchableOpacity>
+          <Button actions={actions} value={4} />
+          <Button actions={actions} value={5} />
+          <Button actions={actions} value={6} />
         </View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="1"><Text style={styles.text}>1</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="2"><Text style={styles.text}>2</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="3"><Text style={styles.text}>3</Text></TouchableOpacity>
+          <Button actions={actions} value={1} />
+          <Button actions={actions} value={2} />
+          <Button actions={actions} value={3} />
         </View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="C"><Text style={styles.text}>C</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="0"><Text style={styles.text}>0</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.onPress} title="."><Text style={styles.text}>.</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={actions.clear} title="C"><Text style={styles.text}>C</Text></TouchableOpacity>
+          <Button actions={actions} value={0} />
+          <Button actions={actions} value={"."} />
         </View>
       </View>
 
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   button: {
