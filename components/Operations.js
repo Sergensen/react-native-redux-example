@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
 import OperationButton from './OperationButton';
 
-const { ADD, SUB, MUL, DIV } = require('../actions/actionTypes');
+const { ADD, SUB, MUL, DIV, RES } = require('../actions/actionTypes');
 
 export default class Operations extends Component {
   render() {
     const { style, actions, last } = this.props;
     return (
       <View style={style}>
+          <OperationButton onPress={actions.res} value="=" type={RES} last={last} />
           <OperationButton onPress={actions.div} value="/" type={DIV} last={last} />
           <OperationButton onPress={actions.mul} value="*" type={MUL} last={last} />
           <OperationButton onPress={actions.sub} value="-" type={SUB} last={last} />

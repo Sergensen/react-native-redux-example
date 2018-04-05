@@ -1,6 +1,9 @@
 export const ADD = 'ADD';
 export const SUB = 'SUB';
 export const MUL = 'MUL';
+export const NEG = 'NEG';
+export const PRO = 'PRO';
+export const MOD = 'MOD';
 export const DIV = 'DIV';
 export const TYPE = 'TYPE';
 export const RES = 'RES';

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import OperationButton from './OperationButton';
 import Button from './Button';
+const { MOD, PRO, NEG } = require('../actions/actionTypes');
 
 export default class Numbers extends Component {
   render() {
@@ -8,6 +10,11 @@ export default class Numbers extends Component {
     const clearButton = state.clear?"AC":"C";
     return (
       <View style={style}>
+        <View style={styles.row}>
+          <OperationButton onPress={actions.mod} last={state.last} type={MOD} value="mod" />
+          <OperationButton onPress={actions.pro} type={PRO} value="%" />
+          <OperationButton onPress={actions.neg} type={NEG} value="+/-" />
+        </View>
         <View style={styles.row}>
           <Button actions={actions} value={7} />
           <Button actions={actions} value={8} />

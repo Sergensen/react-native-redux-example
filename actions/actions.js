@@ -1,9 +1,24 @@
-const { DOT, ADD, SUB, MUL, DIV, TYPE, RES, CLEAR } = require('./actionTypes');
+const { DOT, ADD, SUB, MUL, DIV, TYPE, RES, CLEAR, NEG, PRO, MOD } = require('./actionTypes');
 
 
 export function add() {
   return {
     type: ADD
+  };
+}
+export function neg() {
+  return {
+    type: NEG
+  };
+}
+export function pro() {
+  return {
+    type: PRO
+  };
+}
+export function mod() {
+  return {
+    type: MOD
   };
 }
 
